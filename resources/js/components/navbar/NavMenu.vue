@@ -49,7 +49,7 @@ onBeforeUnmount(() => {
         ]">
             <li v-for="it in items" :key="it.id">
                 <a :href="`#${it.id}`" @click="onClickAnchor(it.id)" :class="[
-                    'px-3 py-2 rounded-md text-sm font-medium transition-colors',
+                    'px-3 py-2 rounded-full text-sm font-medium transition-colors',
                     active === `#${it.id}`
                         ? 'bg-primary text-primary-foreground'
                         : 'hover:bg-muted hover:text-foreground'
