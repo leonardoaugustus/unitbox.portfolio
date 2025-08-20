@@ -7,6 +7,7 @@ import { Code } from "lucide-vue-next"
 import { Workflow } from "lucide-vue-next"
 import { CircleArrowDown } from 'lucide-vue-next'
 import { Button } from "@/components/ui/button"
+import Whatsapp from "@/components/Whatsapp.vue"
 
 </script>
 
@@ -34,10 +35,6 @@ import { Button } from "@/components/ui/button"
 
 
         <h1 class="mt-6 text-4xl sm:text-5xl md:text-6xl font-bold !leading-[1.2] tracking-tight">
-            <!-- <span class="league-script-regular">
-                Leonardo Augusto
-            </span> 
-            <br> -->
             Transformo ideias em produtos digitais confiáveis e escaláveis.
         </h1>
 
@@ -48,10 +45,16 @@ import { Button } from "@/components/ui/button"
 
         <div class="mt-12 flex items-center justify-center gap-4">
 
-            <Button class="rounded-full p-6 text-md px-9 [&_svg]:!w-5 [&_svg]:!h-5">
+            <Button  class="rounded-full p-6 text-md px-9 [&_svg]:!w-5 [&_svg]:!h-5">
                 <span class="mx-2">O que eu faço</span>
                 <CircleArrowDown class="ml-0" />
             </Button>
+            <!-- <Button 
+                class="rounded-full p-6 text-md px-9 [&_svg]:!w-5 [&_svg]:!h-5 bg-[#25D366] hover:bg-[#1ebe5d] text-white">
+                <span class="mx-2">Contato</span>
+                <Whatsapp class="ml-0" />
+            </Button> -->
+
         </div>
     </div>
 </template>

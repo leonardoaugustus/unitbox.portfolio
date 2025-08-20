@@ -49,7 +49,7 @@
     <style>
         .league-script-regular {
             font-family: "Dancing Script", cursive;
-            font-weight: 600;
+            font-weight: 400;
             font-style: normal;
         }
     </style>
