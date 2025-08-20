@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Link } from '@inertiajs/vue3'
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 
 defineProps<{
     orientation?: 'horizontal' | 'vertical'
@@ -8,29 +8,62 @@ defineProps<{
 
 const baseList =
     'gap-1 space-x-0 data-[orientation=vertical]:flex-col data-[orientation=vertical]:items-start'
+
+// seções
+const items = [
+    { id: 'about', label: 'About' },
+    { id: 'experience', label: 'Experience' },
+    { id: 'projects', label: 'Projects' },
+]
+
+// hash ativo
+const active = ref('#about')
+
+function syncFromHash() {
+    active.value = window.location.hash || '#about'
+}
+
+function onClickAnchor(id: string) {
+    active.value = `#${id}` // atualiza imediatamente
+    // deixa o navegador cuidar do scroll com o próprio hash
+}
+
+onMounted(() => {
+    syncFromHash()
+    window.addEventListener('hashchange', syncFromHash, { passive: true })
+})
+
+onBeforeUnmount(() => {
+    window.removeEventListener('hashchange', syncFromHash)
+})
 </script>
 
 <template>
-    <!-- Não force display aqui; deixe o UL controlar com hidden/md:flex -->
     <nav :class="['w-full', $props.class]">
         <ul :class="[
-            // visibilidade controlada aqui:
-            // escondido no mobile, flex a partir de md
             'hidden md:flex w-full items-center gap-3 justify-center',
             baseList,
             $props.orientation === 'vertical'
                 ? 'md:flex-col md:items-start md:justify-start'
                 : ''
         ]">
-            <li>
-                <Link href="#about" class="hover:underline">About</Link>
-            </li>
-            <li>
-                <Link href="#experience" class="hover:underline">Experience</Link>
-            </li>
-            <li>
-                <Link href="#projects" class="hover:underline">Projects</Link>
+            <li v-for="it in items" :key="it.id">
+                <a :href="`#${it.id}`" @click="onClickAnchor(it.id)" :class="[
+                    'px-3 py-2 rounded-md text-sm font-medium transition-colors',
+                    active === `#${it.id}`
+                        ? 'bg-primary text-primary-foreground'
+                        : 'hover:bg-muted hover:text-foreground'
+                ]">
+                    {{ it.label }}
+                </a>
             </li>
         </ul>
     </nav>
 </template>
+
+<style scoped>
+html {
+    scroll-behavior: smooth;
+    /* rolagem suave para anchors */
+}
+</style>

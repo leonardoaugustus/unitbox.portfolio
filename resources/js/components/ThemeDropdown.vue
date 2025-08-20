@@ -1,46 +1,37 @@
 <script setup lang="ts">
+import { onMounted } from 'vue'
 import { useAppearance } from '@/composables/useAppearance'
-import {
-    DropdownMenu,
-    DropdownMenuTrigger,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuLabel,
-    DropdownMenuSeparator,
-} from '@/components/ui/dropdown-menu'
-import { Monitor, Moon, Sun } from 'lucide-vue-next'
+import { Moon, Sun } from 'lucide-vue-next'
+import { TooltipProvider, Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip'
+import { Button } from '@/components/ui/button'
 
 const { appearance, updateAppearance } = useAppearance()
 
-const tabs = [
-    { value: 'light', Icon: Sun, label: 'Light' },
-    { value: 'dark', Icon: Moon, label: 'Dark' },
-    { value: 'system', Icon: Monitor, label: 'System' },
-] as const
-
-const current = () => tabs.find(t => t.value === appearance.value) ?? tabs[2] // system
+onMounted(() => {
+    if (appearance.value !== 'light' && appearance.value !== 'dark') {
+        const mm = window.matchMedia('(prefers-color-scheme: dark)')
+        updateAppearance(mm.matches ? 'dark' : 'light')
+    }
+})
+function toggleTheme() {
+    updateAppearance(appearance.value === 'dark' ? 'light' : 'dark')
+}
 </script>
 
 <template>
-    <DropdownMenu>
-        <DropdownMenuTrigger as-child>
-            <button type="button"
-                class="rounded-full border h-10 w-10 inline-flex items-center justify-center shadow-none"
-                aria-label="Theme">
-                <component :is="current().Icon" class="h-5 w-5" />
-            </button>
-        </DropdownMenuTrigger>
-
-        <DropdownMenuContent align="end" class="w-44">
-            <DropdownMenuLabel>Theme</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem v-for="{ value, Icon, label } in tabs" :key="value" role="menuitemradio"
-                :aria-checked="appearance === value ? 'true' : 'false'"
-                :data-checked="appearance === value ? 'true' : 'false'" @click="updateAppearance(value)"
-                class="flex items-center gap-2 data-[checked=true]:bg-muted">
-                <Icon class="h-4 w-4" />
-                <span class="text-sm">{{ label }}</span>
-            </DropdownMenuItem>
-        </DropdownMenuContent>
-    </DropdownMenu>
+    <TooltipProvider>
+        <Tooltip>
+            <TooltipTrigger as-child>
+                <Button variant="outline" size="icon"
+                    class="rounded-full h-11 w-11 transition-transform hover:scale-105"
+                    :aria-label="appearance === 'dark' ? 'Ativar tema claro' : 'Ativar tema escuro'"
+                    @click="toggleTheme">
+                    <component :is="appearance === 'dark' ? Sun : Moon" class="h-5 w-5" />
+                </Button>
+            </TooltipTrigger>
+            <TooltipContent>
+                {{ appearance === 'dark' ? 'Tema claro' : 'Tema escuro' }}
+            </TooltipContent>
+        </Tooltip>
+    </TooltipProvider>
 </template>

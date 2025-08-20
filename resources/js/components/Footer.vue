@@ -4,10 +4,11 @@ import { Separator } from '@/components/ui/separator'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
-import { Card, CardContent } from '@/components/ui/card'
+import Github from '@/components/Github.vue'
+import Linkedin from '@/components/Linkedin.vue'
 
 // ícones (lucide-vue-next)
-import { Github, Linkedin, Mail, Globe } from 'lucide-vue-next'
+import { Mail, Globe } from 'lucide-vue-next'
 </script>
 
 <template>
