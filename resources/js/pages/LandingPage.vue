@@ -8,11 +8,13 @@ import Experience from '@/components/Experience.vue';
 import Project from '@/components/Project.vue';
 import ContactCompose from '@/components/Contact.vue'
 import Footer from '@/components/Footer.vue';
-
+import TopLoader from '@/components/TopLoader.vue'
 </script>
 
 <template>
     <AppLayout>
+
+        <TopLoader />
 
         <Head title="Landing Page" />
 
