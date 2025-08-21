@@ -11,7 +11,6 @@ let tick: ReturnType<typeof setInterval> | null = null
 function finish() {
   if (tick) clearInterval(tick)
   progress.value = 100
-  // pequeno delay para “ver” 100% e sumir
   setTimeout(() => (showing.value = false), 200)
 }
 
@@ -37,11 +36,8 @@ onBeforeUnmount(() => {
   <Transition name="fade">
     <div v-if="showing" class="fixed inset-0 z-50 bg-background">
       <div class="relative h-1 w-full overflow-hidden">
-        <!-- ✅ Progress do shadcn-vue -->
-        <!-- TENTE PRIMEIRO model-value; se não preencher, troque para :value="progressNum" -->
         <Progress :model-value="progressNum" class="h-1 w-full rounded-none" />
 
-        <!-- Fallback ultra fino (não vai aparecer “texto”) -->
         <div class="pointer-events-none absolute left-0 top-0 h-[2px] w-full" aria-hidden="true">
           <div class="h-full bg-primary" :style="{ width: progressNum + '%' }" />
         </div>

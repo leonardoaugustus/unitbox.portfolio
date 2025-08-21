@@ -1,29 +1,20 @@
 <!-- resources/js/components/Hero.vue -->
 <script setup lang="ts">
-import { onMounted } from 'vue'
 import { useI18n } from '@/composables/useI18n'
 
 // shadcn-vue
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 
-// ícones (lucide-vue-next)
+// ícones
 import { Terminal, Calendar, Code, Workflow, CircleArrowDown } from "lucide-vue-next"
 
-// (opcional) ícone/btn WhatsApp se quiser usar depois
-// import Whatsapp from "@/components/Whatsapp.vue"
-
-const { t, load } = useI18n()
-
-// carrega traduções do locale atual (definido na sessão pelo backend)
-onMounted(() => {
-    load() // ou load('pt_BR') / load('en') para forçar
-})
+const { t } = useI18n()
 </script>
 
 <template>
     <section id="hero" class="relative min-h-screen px-6 pt-6 overflow-hidden text-center mt-9">
-        <!-- Badges do topo -->
+        <!-- Badges -->
         <div class="flex flex-wrap items-center justify-center gap-2">
             <Badge class="rounded-lg mx-2 px-3">
                 <Calendar class="me-2 text-lg" :size="20" />
@@ -62,13 +53,6 @@ onMounted(() => {
                 <span class="mx-2">O que eu faço</span>
                 <CircleArrowDown class="ml-0" />
             </Button>
-
-            <!-- Exemplo de botão WhatsApp (opcional)
-      <Button class="rounded-full p-6 text-md px-9 [&_svg]:!w-5 [&_svg]:!h-5 bg-[#25D366] hover:bg-[#1ebe5d] text-white">
-        <span class="mx-2">Contato</span>
-        <Whatsapp class="ml-0" />
-      </Button>
-      -->
         </div>
     </section>
 </template>

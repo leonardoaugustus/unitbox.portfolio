@@ -108,8 +108,6 @@ import { Mail, Globe } from 'lucide-vue-next'
                 <p class="text-xs text-muted-foreground">
                     © {{ new Date().getFullYear() }} Todos os direitos reservados.
                 </p>
-
-
             </div>
         </div>
 
