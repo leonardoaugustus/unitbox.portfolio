@@ -27,14 +27,20 @@ export function useI18n() {
         try { localStorage.setItem('locale', data.locale) } catch { }
     }
 
-    function t(path: string): string {
+    function t(path: string): any {
         const [group, ...rest] = path.split('.')
         const keyPath = rest.join('.')
 
-        const val = keyPath ? messages.value?.[group]?.[keyPath] : messages.value?.[group]
+        const val = keyPath
+            ? messages.value?.[group]?.[keyPath]
+            : messages.value?.[group]
+
         if (val != null) return val
 
-        const fVal = keyPath ? fallbackMessages.value?.[group]?.[keyPath] : fallbackMessages.value?.[group]
+        const fVal = keyPath
+            ? fallbackMessages.value?.[group]?.[keyPath]
+            : fallbackMessages.value?.[group]
+
         return fVal ?? path
     }
 

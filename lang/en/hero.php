@@ -1,8 +1,15 @@
 <?php
 
 return [
-    'title' => 'I transform ideas into reliable and scalable digital products.',
-    'description' => 'Hello, my name is Leonardo, I am a Senior Software and Product Developer.
-            I work on modern web applications, process automation, and solutions with Artificial Intelligence. I have strong
+    'title' => 'I turn ideas into reliable and scalable digital products.',
+    'description' => 'Hi, my name is Leonardo, I am a Senior Software and Product Developer.
+            I work on modern web applications, process automation, and AI-powered solutions. I have strong
             experience in telecommunications software and leading development teams.',
+
+    'tags' => [
+        ['description' => '9 years of experience',            'icon' => 'clock'],
+        ['description' => 'Laravel * Vue JS * Inertia',       'icon' => 'code'],
+        ['description' => 'Python Automation',                'icon' => 'workflow'],
+        ['description' => 'AI Automation',                    'icon' => 'terminal'],
+    ],
 ];
