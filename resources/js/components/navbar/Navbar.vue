@@ -3,10 +3,16 @@ import Logo from '@/components/AppLogo.vue'
 import NavMenu from '@/components/navbar/NavMenu.vue'
 import NavigationSheet from '@/components/navbar/NavigationSheet.vue'
 import ThemeDropdown from '@/components/ThemeDropdown.vue'
+
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
+import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator } from '@/components/ui/dropdown-menu'
+import { Button } from '@/components/ui/button'
 import Github from '@/components/Github.vue'
 import Linkedin from '@/components/Linkedin.vue'
-import { Button } from '@/components/ui/button'
+import { Languages, Check } from 'lucide-vue-next'
+import Brazil from '@/components/Brazil.vue'
+import USA from '@/components/USA.vue'
+
 </script>
 
 <template>
@@ -17,7 +23,6 @@ import { Button } from '@/components/ui/button'
             <div class="flex items-center gap-6 w-full">
                 <div class="flex items-center gap-2">
                     <Logo />
-                    <!-- <span class="font-semibold text-lg whitespace-nowrap">Leonardo Augusto</span> -->
                     <span class="league-script-regular text-2xl whitespace-nowrap ms-0">
                         Leonardo Augusto
                     </span>
@@ -31,7 +36,6 @@ import { Button } from '@/components/ui/button'
             <div class="flex items-center gap-3">
                 <!-- Ações (LinkedIn, GitHub, Tema): só no desktop -->
                 <div class="hidden md:flex items-center gap-3">
-                    <!-- LinkedIn -->
                     <TooltipProvider>
                         <div class="flex items-center gap-2">
                             <!-- GitHub -->
@@ -63,13 +67,40 @@ import { Button } from '@/components/ui/button'
                                 </TooltipTrigger>
                                 <TooltipContent>LinkedIn</TooltipContent>
                             </Tooltip>
-
                         </div>
                     </TooltipProvider>
 
                     <!-- Dropdown de Tema -->
                     <ThemeDropdown />
                 </div>
+
+                <!-- Dropdown de Idioma (sempre visível, inclusive no mobile) -->
+                <DropdownMenu>
+                    <DropdownMenuTrigger as-child>
+                        <Button type="button" variant="outline" size="icon"
+                            class="rounded-full h-11 w-11 transition-transform hover:scale-105" aria-label="Language">
+                            <!-- Bandeira do Brasil (ícone do botão) -->
+                            <Brazil />
+                        </Button>
+                    </DropdownMenuTrigger>
+
+                    <DropdownMenuContent align="end" class="w-48">
+                        <DropdownMenuLabel>Language</DropdownMenuLabel>
+                        <DropdownMenuSeparator />
+                        <!-- Padrão Brasil “selecionado” visualmente -->
+                        <DropdownMenuItem class="flex items-center gap-2 cursor-default">
+                            <Brazil />
+                            <span class="flex-1">Português (PT)</span>
+                            <Check class="size-4 opacity-100" />
+                        </DropdownMenuItem>
+
+                        <DropdownMenuItem class="flex items-center gap-2 cursor-default">
+                            <!-- Bandeira dos EUA -->
+                            <USA />
+                            <span class="flex-1">English (EN)</span>
+                        </DropdownMenuItem>
+                    </DropdownMenuContent>
+                </DropdownMenu>
 
                 <!-- Mobile: botão que abre o menu lateral -->
                 <div class="md:hidden">

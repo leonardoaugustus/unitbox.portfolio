@@ -16,7 +16,7 @@ import TopLoader from '@/components/TopLoader.vue'
 
         <TopLoader />
 
-        <Head title="Landing Page" />
+        <Head title="Leonardo Augusto" />
 
         <Hero />
 
