@@ -1,0 +1,7 @@
+<?php
+return [
+    'about' => 'About',
+    'experience' => 'Experience',
+    'projects' => 'Projects',
+    'contact' => 'Contact',
+];

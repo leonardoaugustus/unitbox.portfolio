@@ -50,20 +50,17 @@ Route::get('/i18n/{locale?}', function ($locale = null) {
 
 function loadTranslations(string $locale): array
 {
-    // ✅ usa lang_path() em vez de resource_path()
-    $basePath = lang_path($locale);
+    $basePath = resource_path("lang/{$locale}");
+    $allowed = ['hero', 'navbar', 'footer']; // só estes arquivos vão para o front
     $translations = [];
 
-    if (!is_dir($basePath)) {
-        return $translations;
-    }
-
-    // Carrega todos os arquivos PHP (ex.: hero.php, navbar.php, etc.)
-    foreach (glob($basePath . '/*.php') as $file) {
-        $group = basename($file, '.php'); // nome do arquivo vira o "grupo" (ex.: hero)
-        $data = require $file;
-        if (is_array($data)) {
-            $translations[$group] = $data;
+    foreach ($allowed as $group) {
+        $file = "{$basePath}/{$group}.php";
+        if (is_file($file)) {
+            $data = require $file;
+            if (is_array($data)) {
+                $translations[$group] = $data;
+            }
         }
     }
 

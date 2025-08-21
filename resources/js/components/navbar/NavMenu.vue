@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { ref, onMounted, onBeforeUnmount, computed } from 'vue'
+import { useI18n } from '@/composables/useI18n'
 
 defineProps<{
     orientation?: 'horizontal' | 'vertical'
@@ -9,12 +10,16 @@ defineProps<{
 const baseList =
     'gap-1 space-x-0 data-[orientation=vertical]:flex-col data-[orientation=vertical]:items-start'
 
-// seções
-const items = [
-    { id: 'about', label: 'About' },
-    { id: 'experience', label: 'Experience' },
-    { id: 'projects', label: 'Projects' },
-]
+// i18n
+const { t } = useI18n()
+
+// itens traduzidos (reativos ao locale)
+const items = computed(() => [
+    { id: 'about', label: t<string>('navbar.about', 'About') },
+    { id: 'experience', label: t<string>('navbar.experience', 'Experience') },
+    { id: 'projects', label: t<string>('navbar.projects', 'Projects') },
+    { id: 'contact', label: t<string>('navbar.contact', 'Contact') },
+])
 
 // hash ativo
 const active = ref('#about')
@@ -64,6 +69,5 @@ onBeforeUnmount(() => {
 <style scoped>
 html {
     scroll-behavior: smooth;
-    /* rolagem suave para anchors */
 }
 </style>

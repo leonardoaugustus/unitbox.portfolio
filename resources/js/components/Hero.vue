@@ -101,12 +101,12 @@ const visibleTokens = computed(() =>
 </script>
 
 <template>
-    <section id="hero" class="relative min-h-screen px-6 pt-6 overflow-hidden text-center mt-9">
+    <section id="hero" class="relative min-h-screen px-6 pt-6 overflow-hidden text-center mt-5">
         <!-- Linha “terminal” fixa acima do título -->
         <div class="mx-auto inline-flex items-center gap-2 rounded-md border px-3 py-1.5 text-sm font-mono bg-background/70 backdrop-blur border-muted-foreground/30 text-muted-foreground shadow-xs"
             aria-label="Terminal prompt">
             <Terminal class="size-4 opacity-80" />
-            <span class="opacity-90">Hey Léo, o que você faz?</span>
+            <span class="opacity-90">{{ t('hero.subtitle') }}</span>
             <span class="terminal-cursor" aria-hidden="true" />
         </div>
 
@@ -129,7 +129,7 @@ const visibleTokens = computed(() =>
         <!-- Ações -->
         <div class="mt-12 flex items-center justify-center gap-4">
             <Button class="rounded-full p-6 text-md px-9 [&_svg]:!w-5 [&_svg]:!h-5">
-                <span class="mx-2">O que eu faço</span>
+                <span class="mx-2">{{ t('hero.button') }}</span>
                 <CircleArrowDown class="ml-0" />
             </Button>
         </div>

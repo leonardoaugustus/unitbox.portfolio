@@ -12,7 +12,7 @@ import LanguageDropdown from '@/components/LanguageDropdown.vue'
 
 <template>
     <nav
-        class="fixed z-10 top-6 inset-x-4 h-16 xs:h-20 bg-background/60 backdrop-blur-sm border dark:border-slate-500/40 max-w-screen-xl mx-auto rounded-full">
+        class="fixed z-10 top-6 inset-x-4 h-16 xs:h-20 bg-background/60 backdrop-blur-sm border dark:border-slate-500/40 max-w-screen-xl mx-auto rounded-xl shadow-2xs">
         <div class="h-full flex items-center justify-between mx-auto px-4">
             <!-- Esquerda: Logo + Nome -->
             <div class="flex items-center gap-6 w-full">
