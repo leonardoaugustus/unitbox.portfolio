@@ -42,7 +42,7 @@ onBeforeUnmount(() => {
         <Progress :model-value="progressNum" class="h-1 w-full rounded-none" />
 
         <!-- Fallback ultra fino (não vai aparecer “texto”) -->
-        <div class="pointer-events-none absolute left-0 top-0 h-[1px] w-full" aria-hidden="true">
+        <div class="pointer-events-none absolute left-0 top-0 h-[2px] w-full" aria-hidden="true">
           <div class="h-full bg-primary" :style="{ width: progressNum + '%' }" />
         </div>
       </div>
