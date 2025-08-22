@@ -1,5 +1,4 @@
 <?php
-
 return [
     'title' => 'Transformo ideias em produtos digitais confiáveis e escaláveis.',
     'description' => 'Olá, me chamo Leonardo, sou Desenvolvedor Sênior de Software e Produto.

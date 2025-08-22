@@ -45,13 +45,21 @@ export function useI18n() {
         const pick = (src: Dict) =>
             keyPath ? src?.[group]?.[keyPath] : src?.[group]
 
+        const normalize = (v: unknown) => {
+            if (typeof v !== 'string') return v as T
+            // normaliza: \r\n -> \n, \r -> \n, "\\n" (barra+n literal) -> \n real
+            return v
+                .replace(/\r\n/g, '\n')
+                .replace(/\r/g, '\n')
+                .replace(/\\n/g, '\n') as unknown as T
+        }
+
         const val = pick(messages.value)
-        if (val != null) return val as T
+        if (val != null) return normalize(val)
 
         const fVal = pick(fallbackMessages.value)
-        if (fVal != null) return fVal as T
+        if (fVal != null) return normalize(fVal)
 
-        // Se nada encontrado, usa fallback (se fornecido) ou devolve a própria chave
         return (fallback ?? (path as unknown)) as T
     }
 

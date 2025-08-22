@@ -103,7 +103,7 @@ const visibleTokens = computed(() =>
 <template>
     <section id="hero" class="relative min-h-screen px-6 pt-6 overflow-hidden text-center mt-5">
         <!-- Linha “terminal” fixa acima do título -->
-        <div class="mx-auto inline-flex items-center gap-2 rounded-md border px-3 py-1.5 text-sm font-mono bg-background/70 backdrop-blur border-muted-foreground/30 text-muted-foreground shadow-xs"
+        <div class="mx-auto inline-flex items-center gap-2 rounded-md border px-3 py-1.5 text-sm font-mono bg-background/70 backdrop-blur border-muted-foreground/30 text-foreground/100 shadow-xs"
             aria-label="Terminal prompt">
             <Terminal class="size-4 opacity-80" />
             <span class="opacity-90">{{ t('hero.subtitle') }}</span>
@@ -122,7 +122,7 @@ const visibleTokens = computed(() =>
         </h1>
 
         <!-- Descrição -->
-        <p class="mt-6 text-[17px] md:text-lg max-w-3xl mx-auto">
+        <p class="mt-6 text-[19px]  max-w-3xl mx-auto text-foreground/100 font-sans">
             {{ t('hero.description') }}
         </p>
 

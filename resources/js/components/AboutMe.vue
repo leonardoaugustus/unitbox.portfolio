@@ -1,11 +1,15 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onBeforeUnmount, watch } from 'vue'
 import { Card, CardContent } from '@/components/ui/card'
+import { useI18n } from '@/composables/useI18n'
 import Button from './ui/button/Button.vue'
 
+const { t } = useI18n()
 const closed = ref(false)
 const minimized = ref(false)
 const maximized = ref(false)
+
+
 
 // trava/destrava o scroll da página
 function setScrollLocked(locked: boolean) {
@@ -81,7 +85,9 @@ onBeforeUnmount(() => {
 <template>
   <section id="about" class="relative">
     <div class="max-w-screen-md mx-auto">
+      
       <Card v-if="!closed" :class="cardClass">
+        
         <!-- Barra superior estilo navegador -->
         <div class="flex items-center gap-2 px-4 py-2 border-b bg-muted/40 select-none" @dblclick="onMaximize"
           :title="maximized ? 'Duplo clique para restaurar' : 'Duplo clique para maximizar'">
@@ -126,23 +132,19 @@ onBeforeUnmount(() => {
           <div class="w-4 h-4 rounded-full bg-muted-foreground/40" />
         </div>
 
+        
         <!-- Conteúdo (esconde quando minimizado) -->
         <CardContent :class="[
           'transition-[opacity,transform,height,margin] duration-300',
-          minimized ? 'opacity-0 -translate-y-1 h-0 p-0 m-0 overflow-hidden' : 'opacity-100 translate-y-0 p-6'
+          minimized ? 'opacity-0 -translate-y-1 h-0 p-0 m-0 overflow-hidden' : 'opacity-100 translate-y-0 px-6 py-2'
         ]">
           <div class="flex flex-col md:flex-row items-center gap-8">
             <div class="flex-1 text-center md:text-left">
               <h2 class="text-2xl font-bold mb-4 tracking-tight">
-                Passionate about creating impactful web experiences
+                {{ t('about.subtitle') }}
               </h2>
-              <p class="text-muted-foreground mb-4 text-justify">
-                Com mais de 5 anos de experiência em desenvolvimento full-stack, sou especialista em construir
-                aplicações web escaláveis utilizando tecnologias modernas. Desenvolvedor Sênior de Software e Produto,
-                especializado em aplicações web modernas, automação de processos e soluções com Inteligência Artificial.
-                Tenho forte atuação em software de telecomunicações e experiência como líder de times de
-                desenvolvimento, transformando requisitos complexos em soluções digitais seguras, escaláveis e de fácil
-                manutenção.
+              <p class="text-foreground/100 mb-4 whitespace-pre-line">
+                {{ t('about.description') }}
               </p>
             </div>
 
