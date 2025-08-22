@@ -36,7 +36,7 @@ Route::get('/i18n/{locale?}', function ($locale = null) {
     // carrega traduções
     $messages = loadTranslations($locale);
 
-    
+
     // opcional: também envia o "fallback" (ex.: inglês) para fallback no client
     $fallback = 'en';
     $fallbackMessages = $locale !== $fallback ? loadTranslations($fallback) : [];
@@ -52,16 +52,15 @@ Route::get('/i18n/{locale?}', function ($locale = null) {
 function loadTranslations(string $locale): array
 {
     $basePath = resource_path("lang/{$locale}");
-    $allowed = ['hero', 'navbar', 'footer', 'about']; // só estes arquivos vão para o front
     $translations = [];
 
-    foreach ($allowed as $group) {
-        $file = "{$basePath}/{$group}.php";
-        if (is_file($file)) {
-            $data = require $file;
-            if (is_array($data)) {
-                $translations[$group] = $data;
-            }
+    // varre todos os arquivos .php do diretório
+    foreach (glob("{$basePath}/*.php") as $file) {
+        $group = basename($file, '.php');
+        $data = require $file;
+
+        if (is_array($data)) {
+            $translations[$group] = $data;
         }
     }
 
