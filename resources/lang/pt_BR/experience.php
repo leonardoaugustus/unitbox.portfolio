@@ -29,7 +29,5 @@ return [
             'description' => 'Responsible for analyzing and improving IT systems to enhance business processes.',
             'tags' => ['Jira', 'Support', 'IT Inventory', 'SQL Server'],
         ],
-
     ]
-
 ];

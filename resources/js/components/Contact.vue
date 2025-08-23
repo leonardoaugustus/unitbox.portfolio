@@ -1,18 +1,19 @@
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { ref, onMounted, onBeforeUnmount, computed } from 'vue'
 import { Card, CardContent } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
-import { Phone, Mail, MapPin } from 'lucide-vue-next'
+import { Mail } from 'lucide-vue-next'
 
-// dados de contato
-const phoneDisplay = '+55 (11) 99999-9999'
-const phoneHref = 'tel:+5511999999999'
+import { useI18n } from '@/composables/useI18n'
+import Whatsapp from '@/components/Whatsapp.vue'
+import Linkedin from '@/components/Linkedin.vue'
 
-const emailDisplay = 'leonardo@unitbox.com.br'
-const emailHref = 'mailto:leonardo@unitbox.com.br'
+const { t } = useI18n()
 
-const addressDisplay = 'Rua Griffin, 192, Osasco — SP'
-const mapsHref = 'https://maps.google.com/?q=Rua+Griffin,+192,+Osasco,+SP'
+const phone = t<any>('contact.phone')
+const email = t<any>('contact.email')
+const linkedin = t<any>('contact.linkedin')
+
 
 // refs
 const sectionRef = ref<HTMLElement | null>(null)
@@ -43,14 +44,13 @@ onBeforeUnmount(() => observer?.disconnect())
                 <!-- Lado esquerdo -->
                 <div>
                     <p class="tracking-[0.35em] text-xs text-muted-foreground mb-6">
-                        ENTRE EM CONTATO COMIGO
+                        {{ t('contact.subtitle') }}
                     </p>
                     <h2 class="text-4xl xs:text-5xl md:text-6xl font-bold tracking-tight leading-[1.1]">
-                        Vamos conversar!
+                        {{ t('contact.title') }}
                     </h2>
                     <p class="mt-6 text-base md:text-lg text-muted-foreground max-w-[52ch]">
-                        Entre em contato! Estou aqui para ajudar e respondo em até 24 horas.
-                        Suas perguntas são importantes para mim.
+                        {{ t('contact.description') }}
                     </p>
                 </div>
 
@@ -70,12 +70,12 @@ onBeforeUnmount(() => observer?.disconnect())
                             <div class="flex items-start gap-4">
                                 <div
                                     class="inline-flex h-10 w-10 items-center justify-center rounded-xl border bg-background/50 backdrop-blur-sm">
-                                    <Phone class="size-5" />
+                                    <Whatsapp class="size-5" />
                                 </div>
                                 <div class="flex-1">
-                                    <p class="font-semibold">Ligue para mim</p>
-                                    <a :href="phoneHref" class="mt-1 inline-block underline underline-offset-4">
-                                        {{ phoneDisplay }}
+                                    <p class="font-semibold">{{ phone.description }}</p>
+                                    <a :href="phone.href" class="mt-1 inline-block underline underline-offset-4">
+                                        {{ phone.display }}
                                     </a>
                                 </div>
                             </div>
@@ -89,9 +89,9 @@ onBeforeUnmount(() => observer?.disconnect())
                                     <Mail class="size-5" />
                                 </div>
                                 <div class="flex-1">
-                                    <p class="font-semibold">Escreva um e-mail</p>
-                                    <a :href="emailHref" class="mt-1 inline-block underline underline-offset-4">
-                                        {{ emailDisplay }}
+                                    <p class="font-semibold">{{ email.description }}</p>
+                                    <a :href="email.href" class="mt-1 inline-block underline underline-offset-4">
+                                        {{ email.display }}
                                     </a>
                                 </div>
                             </div>
@@ -102,13 +102,12 @@ onBeforeUnmount(() => observer?.disconnect())
                             <div class="flex items-start gap-4">
                                 <div
                                     class="inline-flex h-10 w-10 items-center justify-center rounded-xl border bg-background/50 backdrop-blur-sm">
-                                    <MapPin class="size-5" />
+                                    <Linkedin class="size-5" />
                                 </div>
                                 <div class="flex-1">
-                                    <p class="font-semibold">Visite meu escritório</p>
-                                    <a :href="mapsHref" target="_blank" rel="noopener noreferrer"
-                                        class="mt-1 inline-block underline underline-offset-4">
-                                        {{ addressDisplay }}
+                                    <p class="font-semibold">{{ linkedin.description }}</p>
+                                    <a :href="linkedin.href" class="mt-1 inline-block underline underline-offset-4">
+                                        {{ linkedin.display }}
                                     </a>
                                 </div>
                             </div>
