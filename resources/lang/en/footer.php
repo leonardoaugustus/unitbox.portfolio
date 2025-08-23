@@ -4,7 +4,7 @@ $year = date('Y');
 
 return [
     'title' => 'Leonardo Augusto',
-    'description' => 'Engenheiro de Software & Produto — web moderna, automações e IA, com forte atuação em telecom.',
-    'tag' => 'Disponível para novos projetos',
-    'copyright' => "© $year Leonardo Augusto. Todos os direitos reservados."
+    'description' => 'Software & Product Engineer — building modern web applications, smart automations, and AI-driven solutions.',
+    'tag' => 'Let’s create something amazing together',
+    'copyright' => "© $year Leonardo Augusto. All rights reserved."
 ];

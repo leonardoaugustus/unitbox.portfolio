@@ -6,12 +6,13 @@ import { Badge } from '@/components/ui/badge'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
 import Github from '@/components/Github.vue'
 import Linkedin from '@/components/Linkedin.vue'
+import Whatsapp from '@/components/Whatsapp.vue'
 
 // ícones (lucide-vue-next)
 import { Mail, Globe } from 'lucide-vue-next'
 import { useI18n } from '@/composables/useI18n'
 
-// const { t } = useI18n()
+const { t } = useI18n()
 
 </script>
 
@@ -28,13 +29,11 @@ import { useI18n } from '@/composables/useI18n'
                     <div class="text-2xl font-bold tracking-tight"> <span class="league-script-regular">
                             Leonardo Augusto
                         </span> </div>
-                    <p class="mt-2 text-sm text-muted-foreground max-w-[44ch]">
-                        Engenheiro de Software & Produto — web moderna, automações e IA, com forte atuação em telecom.
-                    </p>
+                    <p class="mt-2 text-sm text-muted-foreground max-w-[44ch]">{{ t('footer.description') }}</p>
 
                     <div class="mt-4">
                         <Badge class="rounded-full px-3 py-1">
-                            🔔 Disponível para novos projetos
+                            🔔 {{ t('footer.tag') }}
                         </Badge>
                     </div>
                 </div>
@@ -93,13 +92,13 @@ import { useI18n } from '@/composables/useI18n'
                                 <TooltipTrigger as-child>
                                     <Button as-child variant="outline" size="icon"
                                         class="rounded-full h-11 w-11 transition-transform hover:scale-105"
-                                        aria-label="Portfólio">
-                                        <a href="https://leonardoaugusto.dev" target="_blank" rel="noopener noreferrer">
-                                            <Globe class="size-5" />
+                                        aria-label="WhatsApp">
+                                        <a href="https://wa.me/5511982226852?text=Olá%20Leonardo,%20gostaria%20de%20saber%20mais%20sobre%20seus%20serviços." target="_blank" rel="noopener noreferrer">
+                                            <Whatsapp class="size-5" />
                                         </a>
                                     </Button>
                                 </TooltipTrigger>
-                                <TooltipContent>Portfólio</TooltipContent>
+                                <TooltipContent>WhatsApp</TooltipContent>
                             </Tooltip>
                         </div>
                     </TooltipProvider>
