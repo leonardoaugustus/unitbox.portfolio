@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useI18n } from '@/composables/useI18n'
+import { Calendar } from 'lucide-vue-next'
 
 const { t } = useI18n()
 const companies = computed(() => t<any[]>('experience.companies', []))
 
-console.log(companies)
 
 </script>
 
@@ -32,7 +32,8 @@ console.log(companies)
                     <div class="space-y-3">
                         <div class="flex items-center gap-3">
                             <div class="flex-shrink-0 size-9 bg-accent rounded-full flex items-center justify-center">
-                                <i class="i-lucide-building2 text-muted-foreground"></i>
+                                <img :src="`${company.logo}`"
+                                    alt="" class="object-cover">
                             </div>
                             <span class="text-lg font-semibold">{{ company.name }}</span>
                         </div>
@@ -40,7 +41,7 @@ console.log(companies)
                         <div>
                             <h3 class="text-xl font-medium">{{ company.position }}</h3>
                             <div class="flex items-center gap-2 mt-1 text-sm">
-                                <i class="i-lucide-calendar size-4"></i>
+                                <Calendar class="size-4"/>
                                 <span>{{ company.duration }}</span>
                             </div>
                         </div>
