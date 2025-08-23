@@ -9,7 +9,7 @@ import Linkedin from '@/components/Linkedin.vue'
 import { useI18n } from '@/composables/useI18n'
 const { t } = useI18n()
 
-// ✅ use computed + fallback vazio
+
 type ContactItem = { description?: string; display?: string; href?: string }
 const phone    = computed<ContactItem>(() => t<ContactItem>('contact.phone', {} as ContactItem))
 const email    = computed<ContactItem>(() => t<ContactItem>('contact.email', {} as ContactItem))

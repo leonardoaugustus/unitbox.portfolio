@@ -1,9 +1,9 @@
 <?php
 
 return [
-    'title' => 'Vamos conversar!',
-    'subtitle' => 'ENTRE EM CONTATO COMIGO',
-    'description' => 'Entre em contato! Estou aqui para ajudar e respondo em até 24 horas.',
+    'title' => 'Vamos conversar?',
+    'subtitle' => 'CONTATOS',
+    'description' => 'Sua marca pode ir mais longe — vamos juntos nessa.',
     'phone' => [
         'description' => 'Me envie uma mensagem',
         'display' => '+55 (11) 98222-6852',
