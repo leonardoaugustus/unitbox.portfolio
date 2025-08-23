@@ -18,9 +18,7 @@ import LanguageDropdown from '@/components/LanguageDropdown.vue'
             <div class="flex items-center gap-6 w-full">
                 <div class="flex items-center gap-2">
                     <Logo />
-                    <span class="league-script-regular text-2xl whitespace-nowrap ms-0">
-                        Leonardo Augusto
-                    </span>
+                    <span class="league-script-regular text-xl whitespace-nowrap ms-0">Leonardo Augusto</span>
                 </div>
 
                 <!-- Menu principal: só no desktop -->

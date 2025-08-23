@@ -9,6 +9,10 @@ import Linkedin from '@/components/Linkedin.vue'
 
 // ícones (lucide-vue-next)
 import { Mail, Globe } from 'lucide-vue-next'
+import { useI18n } from '@/composables/useI18n'
+
+// const { t } = useI18n()
+
 </script>
 
 <template>

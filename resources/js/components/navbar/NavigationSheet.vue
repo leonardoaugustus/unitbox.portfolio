@@ -1,8 +1,8 @@
 <script setup lang="ts">
+import { computed } from 'vue'
+import { Button } from '@/components/ui/button'
 import Logo from '@/components/AppLogo.vue'
 import NavMenu from '@/components/navbar/NavMenu.vue'
-
-// shadcn-vue
 import {
     Sheet,
     SheetTrigger,
@@ -11,7 +11,19 @@ import {
     SheetTitle,
     SheetClose
 } from '@/components/ui/sheet'
-import { Button } from '@/components/ui/button'
+import { useI18n } from '@/composables/useI18n'
+
+// i18n
+const { t } = useI18n()
+
+// itens traduzidos (reativos ao locale)
+const items = computed(() => [
+    { id: 'about', label: t<string>('navbar.about', 'About') },
+    { id: 'experience', label: t<string>('navbar.experience', 'Experience') },
+    { id: 'projects', label: t<string>('navbar.projects', 'Projects') },
+    { id: 'contact', label: t<string>('navbar.contact', 'Contact') },
+])
+
 </script>
 
 <template>
@@ -36,7 +48,7 @@ import { Button } from '@/components/ui/button'
                         <SheetTitle>
                             <div class="flex items-center gap-2">
                                 <Logo />
-                                <span class="font-semibold">Leonardo Augusto</span>
+                                <span class="font-semibold league-script-regular text-xl">Leonardo Augusto</span>
                             </div>
                         </SheetTitle>
                     </SheetHeader>
@@ -50,19 +62,22 @@ import { Button } from '@/components/ui/button'
                     <ul class="mt-6 space-y-2 text-sm text-muted-foreground">
                         <li>
                             <SheetClose as-child>
-                                <a href="#about" class="block px-3 py-2 rounded-md hover:bg-muted">Ir para About</a>
+                                <a href="#about" class="block px-3 py-2 rounded-md hover:bg-muted text-2xl">{{ items[0].label }}</a>
                             </SheetClose>
                         </li>
                         <li>
                             <SheetClose as-child>
-                                <a href="#experience" class="block px-3 py-2 rounded-md hover:bg-muted">Ir para
-                                    Experience</a>
+                                <a href="#experience" class="block px-3 py-2 rounded-md hover:bg-muted text-2xl">{{ items[1].label }}</a>
                             </SheetClose>
                         </li>
                         <li>
                             <SheetClose as-child>
-                                <a href="#projects" class="block px-3 py-2 rounded-md hover:bg-muted">Ir para
-                                    Projects</a>
+                                <a href="#projects" class="block px-3 py-2 rounded-md hover:bg-muted text-2xl">{{ items[2].label }}</a>
+                            </SheetClose>
+                        </li>
+                        <li>
+                            <SheetClose as-child>
+                                <a href="#contact" class="block px-3 py-2 rounded-md hover:bg-muted text-2xl">{{ items[3].label }}</a>
                             </SheetClose>
                         </li>
                     </ul>

@@ -48,8 +48,9 @@
         rel="stylesheet">
     <style>
         .league-script-regular {
-            font-family: "Dancing Script", cursive;
-            font-weight: 400;
+            /* font-family: "Dancing Script", cursive; */
+            font-family: "League Script", cursive;
+            font-weight: 800;
             font-style: normal;
         }
     </style>
