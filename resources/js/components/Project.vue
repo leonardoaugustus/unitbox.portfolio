@@ -1,58 +1,13 @@
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from 'vue'
-
-// shadcn-vue
+import { ref, onMounted, onBeforeUnmount, computed } from 'vue'
+import { useI18n } from '@/composables/useI18n'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 
-type Project = {
-    title: string
-    description: string
-    image: string
-    tags: string[]
-    liveUrl?: string
-    codeUrl?: string
-}
+const { t } = useI18n()
 
-const projects: Project[] = [
-    {
-        title: 'E-Commerce Platform',
-        description:
-            'Plataforma completa com gestão de estoque em tempo real, pagamentos e dashboard administrativo.',
-        image: '/placeholder.svg',
-        tags: ['Next.js', 'TypeScript', 'Stripe', 'Prisma', 'PostgreSQL'],
-        liveUrl: 'https://ecommerce-demo.com',
-        codeUrl: 'https://github.com/username/ecommerce'
-    },
-    {
-        title: 'AI Task Manager',
-        description:
-            'App que usa IA para categorizar, priorizar e sugerir agendamento ideal de tarefas.',
-        image: '/placeholder.svg',
-        tags: ['React', 'Python', 'TensorFlow', 'FastAPI', 'MongoDB'],
-        liveUrl: 'https://ai-taskmanager.com',
-        codeUrl: 'https://github.com/username/ai-taskmanager'
-    },
-    {
-        title: 'Real-time Chat Application',
-        description:
-            'Chat em tempo real com envio de arquivos, chamadas de vídeo e salas privadas.',
-        image: '/placeholder.svg',
-        tags: ['React', 'Socket.io', 'WebRTC', 'Node.js', 'Redis'],
-        liveUrl: 'https://chatapp-demo.com',
-        codeUrl: 'https://github.com/username/chat-app'
-    },
-    {
-        title: 'AI Image Generator',
-        description:
-            'Gerador de imagens via IA a partir de prompts, com histórico e compartilhamento.',
-        image: '/placeholder.svg',
-        tags: ['React', 'Next.js', 'Tailwind CSS', 'Shadcn UI'],
-        liveUrl: 'https://ai-image-generator.com',
-        codeUrl: 'https://github.com/username/ai-image-generator'
-    }
-]
+const projects = computed(() => t<any[]>('project.projects', []))
 
 // animação
 const sectionRef = ref<HTMLElement | null>(null)
@@ -86,16 +41,17 @@ onBeforeUnmount(() => {
             <div class="text-center mb-12">
                 <span
                     class="inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap bg-secondary text-secondary-foreground mb-4">
-                    Projects
+                    {{ t('project.tag') }}
                 </span>
-                <h2 class="text-4xl sm:text-5xl font-bold tracking-tight">Featured Work</h2>
+                <h2 class="text-4xl sm:text-5xl font-bold tracking-tight">{{ t('project.title') }}</h2>
                 <p class="text-muted-foreground mt-2 sm:mt-4 text-lg">
-                    Showcasing some of my best projects and technical achievements
+                    {{ t('project.description') }}
                 </p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <Card v-for="(p, idx) in projects" :key="p.title"
+
+                <Card v-for="(p, idx) in projects" :key="idx"
                     class="relative flex flex-col overflow-hidden rounded-xl border border-accent transition-all duration-300 hover:-translate-y-2 hover:border-primary/60 hover:shadow-lg"
                     :class="visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'"
                     :style="{ transitionDelay: visible ? `${idx * 150}ms` : '0ms' }">
