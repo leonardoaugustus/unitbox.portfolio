@@ -4,12 +4,11 @@ import { useI18n } from '@/composables/useI18n'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
+import CarouselGallery from '@/components/CarouselGallery.vue'
 
 const { t } = useI18n()
 
 const projects = computed(() => t<any[]>('project.projects', []))
-
-// animação
 const sectionRef = ref<HTMLElement | null>(null)
 const visible = ref(false)
 let observer: IntersectionObserver | null = null
@@ -56,8 +55,10 @@ onBeforeUnmount(() => {
                     :class="visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'"
                     :style="{ transitionDelay: visible ? `${idx * 150}ms` : '0ms' }">
                     <div class="relative h-64 overflow-hidden bg-accent">
-                        <img :alt="p.title" :src="p.image" loading="lazy" decoding="async"
-                            class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" />
+                        <CarouselGallery :images="Array.isArray(p.images) ? p.images : []" height-class="h-64"
+                            :rounded="false" alt-base="Imagem do projeto" />
+
+
                     </div>
 
                     <CardContent class="flex-1 flex flex-col p-6">

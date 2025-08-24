@@ -25,10 +25,8 @@ class LanguageController extends Controller
             $locale = 'en';
         }
 
-        // fixa locale na App para manter consistência
         App::setLocale($locale);
 
-        // carrega traduções
         $messages = $this->loadTranslations($locale);
 
         $fallback = 'en';
@@ -47,7 +45,6 @@ class LanguageController extends Controller
         $basePath = resource_path("lang/{$locale}");
         $translations = [];
 
-        // varre todos os arquivos .php do diretório
         foreach (glob("{$basePath}/*.php") as $file) {
             $group = basename($file, '.php');
             $data = require $file;
