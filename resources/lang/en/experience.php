@@ -7,11 +7,13 @@ return [
     'companies' => [
         [
             'name' => 'SC Serviços ao Consumidor',
-            'position' => 'Founder & CEO',
+            'position' => 'Tech Lead',
             'duration' => '2015 - Present',
             'logo' => 'logo_sc.png',
-            'description' => 'Leading a team of developers to create innovative software solutions for the agribusiness sector.',
-            'tags' => ['C#', 'Jquery', 'Laravel', 'Python', 'Vue.js', 'Inertia.js', 'Boostrap', 'SQS', 'API Rest'],
+            'description' => "I work as a Senior Developer, Technology Lead, and Solutions Architect.\n
+I am responsible for leading a team of 12 people, including professionals in development, BI, support, and infrastructure.\n
+I define system architecture and drive the creation of scalable, high-impact digital solutions for the business.",
+            'tags' => ['Technical Leadership', 'System Architecture', 'Team Management', 'Digital Solutions'],
         ],
         [
             'name' => 'Unitibox',

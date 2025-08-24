@@ -7,11 +7,13 @@ return [
     'companies' => [
         [
             'name' => 'SC Serviços ao Consumidor',
-            'position' => 'Founder & CEO',
-            'duration' => '2015 - Present',
+            'position' => 'Líder de Tecnologia',
+            'duration' => '2015 - Presente',
             'logo' => 'logo_sc.png',
-            'description' => 'Leading a team of developers to create innovative software solutions for the agribusiness sector.',
-            'tags' => ['C#', 'Jquery', 'Laravel', 'Python', 'Vue.js', 'Inertia.js', 'Boostrap', 'SQS', 'API Rest'],
+            'description' => "Atuo como Desenvolvedor Sênior, Líder de Tecnologia e Arquiteto de Soluções.\n
+Sou responsável por liderar uma equipe de 12 pessoas, incluindo profissionais de desenvolvimento, BI, suporte e infraestrutura.\n
+Defino a arquitetura dos sistemas e conduzo a criação de soluções digitais escaláveis e de alto impacto para o negócio.",
+            'tags' => ['Liderança Técnica', 'Arquitetura de Sistemas', 'Gestão de Equipes', 'Soluções Digitais'],
         ],
         [
             'name' => 'Unitibox',

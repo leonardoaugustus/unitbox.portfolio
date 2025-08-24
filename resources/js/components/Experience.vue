@@ -46,7 +46,7 @@ const companies = computed(() => t<any[]>('experience.companies', []))
                             </div>
                         </div>
 
-                        <p class="text-muted-foreground">{{ company.description }}</p>
+                        <p class="text-foreground/80 whitespace-pre-line">{{ company.description }}</p>
 
                         <div class="flex flex-wrap gap-2">
                             <span v-for="tag in company.tags" :key="tag"

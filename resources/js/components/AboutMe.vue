@@ -85,9 +85,9 @@ onBeforeUnmount(() => {
 <template>
   <section id="about" class="relative">
     <div class="max-w-screen-md mx-auto">
-      
+
       <Card v-if="!closed" :class="cardClass">
-        
+
         <!-- Barra superior estilo navegador -->
         <div class="flex items-center gap-2 px-4 py-2 border-b bg-muted/40 select-none" @dblclick="onMaximize"
           :title="maximized ? 'Duplo clique para restaurar' : 'Duplo clique para maximizar'">
@@ -128,11 +128,9 @@ onBeforeUnmount(() => {
             class="flex-1 mx-4 px-3 py-1 text-xs text-muted-foreground bg-background/70 rounded-md border border-muted-foreground/20 truncate">
             www.leonardoaugusto.dev/about
           </div>
-
           <div class="w-4 h-4 rounded-full bg-muted-foreground/40" />
         </div>
 
-        
         <!-- Conteúdo (esconde quando minimizado) -->
         <CardContent :class="[
           'transition-[opacity,transform,height,margin] duration-300',
@@ -147,7 +145,6 @@ onBeforeUnmount(() => {
                 {{ t('about.description') }}
               </p>
             </div>
-
             <div class="flex flex-col items-center">
               <div class="w-40 h-40 md:w-52 md:h-52 rounded-lg overflow-hidden bg-accent">
                 <img src="https://avatars.githubusercontent.com/u/62160298?v=4" alt="Foto de Leonardo Augusto"
