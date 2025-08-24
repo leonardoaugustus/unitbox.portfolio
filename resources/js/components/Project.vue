@@ -38,7 +38,7 @@ onBeforeUnmount(() => {
     <section id="projects" ref="sectionRef" class="relative py-20 px-6">
         <div class="max-w-screen-md mx-auto">
             <div class="text-center mb-12">
-                <span
+                <span v-if="t('project.tag')"
                     class="inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap bg-secondary text-secondary-foreground mb-4">
                     {{ t('project.tag') }}
                 </span>

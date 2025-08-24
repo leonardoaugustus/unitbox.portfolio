@@ -6,7 +6,7 @@ import USA from '@/components/USA.vue'
 import { Check } from 'lucide-vue-next'
 
 import { useI18n } from '@/composables/useI18n'
-const { locale, load } = useI18n()
+const { locale, load, t } = useI18n()
 
 async function switchLanguage(l: 'en' | 'pt_BR') {
     try {
@@ -28,7 +28,9 @@ async function switchLanguage(l: 'en' | 'pt_BR') {
         </DropdownMenuTrigger>
 
         <DropdownMenuContent align="end" class="w-48">
-            <DropdownMenuLabel>Language</DropdownMenuLabel>
+            <DropdownMenuLabel>
+                {{ t('navbar.language') }}
+            </DropdownMenuLabel>
             <DropdownMenuSeparator />
 
             <DropdownMenuItem class="flex items-center gap-2" :data-state="locale === 'pt_BR' ? 'checked' : 'unchecked'"

@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'title' => 'I turn ideas into reliable and scalable digital products.',
+    'title' => 'I build reliable and scalable digital products that users love',
     'description' => 'Hi, my name is Leonardo, I am a Senior Software and Product Developer.
             I work on modern web applications, process automation, and AI-powered solutions. I have strong
             experience in telecommunications software and leading development teams.',

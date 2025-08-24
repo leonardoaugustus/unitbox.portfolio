@@ -2,7 +2,7 @@
 
 return [
     'title' => 'My Projects',
-    'tag' => 'Some of my projects',
+    'tag' => '',
     'description' => 'Here are some projects and results I’ve delivered',
     'projects' => [
         [

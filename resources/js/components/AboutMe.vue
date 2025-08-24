@@ -140,10 +140,10 @@ onBeforeUnmount(() => {
         ]">
           <div class="flex flex-col md:flex-row items-center gap-8">
             <div class="flex-1 text-center md:text-left">
-              <h2 class="text-2xl font-bold mb-4 tracking-tight">
+              <h2 class="text-3xl font-bold mb-4 tracking-tight">
                 {{ t('about.subtitle') }}
               </h2>
-              <p class="text-foreground/100 mb-4 whitespace-pre-line">
+              <p class="text-foreground/100 mb-4 whitespace-pre-line font-light leading-relaxed">
                 {{ t('about.description') }}
               </p>
             </div>
