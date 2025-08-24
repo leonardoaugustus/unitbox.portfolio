@@ -57,13 +57,12 @@ onBeforeUnmount(() => {
                     <div class="relative h-64 overflow-hidden bg-accent">
                         <CarouselGallery :images="Array.isArray(p.images) ? p.images : []" height-class="h-64"
                             :rounded="false" alt-base="Imagem do projeto" />
-
-
                     </div>
 
-                    <CardContent class="flex-1 flex flex-col p-6">
-                        <h3 class="text-xl font-semibold mb-2">{{ p.title }}</h3>
-                        <p class="text-muted-foreground mb-4">{{ p.description }}</p>
+                    <CardContent class="flex-1 flex flex-col px-6">
+                        <h2 class="text-2xl font-bold font-stretch-normal mb-0 font-sans">{{ p.title }}</h2>
+                        <h5 class="font-semibold mb-2">{{ p.subtitle }}</h5>
+                        <p class="text-foreground/80 mb-4">{{ p.description }}</p>
 
                         <div class="flex flex-wrap gap-2 mb-6">
                             <Badge v-for="tag in p.tags" :key="tag" variant="secondary" class="rounded-full">
@@ -72,8 +71,8 @@ onBeforeUnmount(() => {
                         </div>
 
                         <div class="flex gap-3 mt-auto">
-                            <a v-if="p.liveUrl" :href="p.liveUrl" target="_blank" rel="noopener noreferrer">
-                                <Button class="rounded-full h-9 px-4 py-2">Live Demo</Button>
+                            <a v-if="p.href" :href="p.href" target="_blank" rel="noopener noreferrer">
+                                <Button class="rounded-full h-9 px-4 py-2">{{ p.button }}</Button>
                             </a>
                             <a v-if="p.codeUrl" :href="p.codeUrl" target="_blank" rel="noopener noreferrer">
                                 <Button variant="outline" class="rounded-full h-9 px-4 py-2">View Code</Button>

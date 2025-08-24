@@ -101,7 +101,7 @@ const visibleTokens = computed(() =>
 </script>
 
 <template>
-    <section id="hero" class="relative min-h-screen px-6 pt-6 overflow-hidden text-center mt-5">
+    <section id="hero" class="relative min-h-screen px-6 pt-6 overflow-hidden text-center mt-5 ">
         <!-- Linha “terminal” fixa acima do título -->
         <div class="mx-auto inline-flex items-center gap-2 rounded-md border px-3 py-1.5 text-sm font-mono bg-background/70 backdrop-blur border-muted-foreground/30 text-foreground/100 shadow-xs"
             aria-label="Terminal prompt">
@@ -111,7 +111,7 @@ const visibleTokens = computed(() =>
         </div>
 
         <!-- Título com animação palavra-por-palavra -->
-        <h1 class="mt-6 text-4xl sm:text-5xl md:text-6xl font-bold !leading-[1.2] tracking-tight" aria-live="polite"
+        <h1 class="mt-6 text-4xl sm:text-5xl md:text-7xl font-bold !leading-[1.1] tracking-tight" aria-live="polite"
             role="status">
             <TransitionGroup name="word" tag="span" class="inline will-change-auto">
                 <span v-for="(tok, i) in visibleTokens" :key="i"
@@ -122,7 +122,7 @@ const visibleTokens = computed(() =>
         </h1>
 
         <!-- Descrição -->
-        <p class="mt-6 text-[19px]  max-w-3xl mx-auto text-foreground/100 font-sans">
+        <p class="text-lg font-light leading-relaxed mt-6 text-[4vw] sm:text-lg md:text-2xl">
             {{ t('hero.description') }}
         </p>
 
