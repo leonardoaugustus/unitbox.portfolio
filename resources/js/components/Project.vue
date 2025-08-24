@@ -55,12 +55,13 @@ onBeforeUnmount(() => {
                     :class="visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'"
                     :style="{ transitionDelay: visible ? `${idx * 150}ms` : '0ms' }">
                     <div class="relative h-64 overflow-hidden bg-accent">
-                        <CarouselGallery :images="Array.isArray(p.images) ? p.images : []" height-class="h-64"
-                            :rounded="false" alt-base="Imagem do projeto" />
+                        <!-- <CarouselGallery :images="Array.isArray(p.images) ? p.images : []" height-class="h-64"
+                            :rounded="false" alt-base="Imagem do projeto" /> -->
+                            <img :src="Array.isArray(p.images) && p.images.length ? p.images[0] : ''" alt="Imagem do projeto" class="object-cover w-full h-full" />
                     </div>
 
                     <CardContent class="flex-1 flex flex-col px-6">
-                        <h2 class="text-2xl font-bold font-stretch-normal mb-0 font-sans">{{ p.title }}</h2>
+                        <h2 class="text-2xl font-bold font-stretch-normal mb-0 font-sans ">{{ p.title }}</h2>
                         <h5 class="font-semibold mb-2">{{ p.subtitle }}</h5>
                         <p class="text-foreground/80 mb-4">{{ p.description }}</p>
 
